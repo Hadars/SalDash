@@ -79,7 +79,7 @@ app.use('/api', require('./routes/api')(passport));
 //   res.sendFile(path.join(__dirname, '../client/build/', 'index.html'));
 // });
 
-app.use(express.static("../client/build"));
+app.use(express.static("client/build"));
 
 // Or we can use routes
 // app.use('/', index);
@@ -101,6 +101,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  console.log(err.message);
   res.render('error');
 });
 
