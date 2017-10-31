@@ -12,7 +12,7 @@ class Pending extends Component {
 
   componentWillMount() {
     const domain = 'http://localhost:3001'
-    const path = `${domain}/api/pendings`
+    const path = `/api/pendings`
     const headers = new Headers({
       "Authorization": `${localStorage.getItem('id_token')}`
     });

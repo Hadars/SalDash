@@ -17,8 +17,7 @@ export function logout() {
 }
 
 export function signIn(username, password) {
-  const domain = 'http://localhost:3001'
-  const path = `${domain}/api/authenticate`
+  const path = `/api/authenticate`
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
@@ -69,7 +68,7 @@ export function isTokenExpired(token) {
 
 export function requestDemo(params) {
   const domain = 'http://localhost:3001'
-  const path = `${domain}/api/signup`
+  const path = `/api/signup`
   const headers = new Headers({
     'Content-Type': 'application/json'
   });

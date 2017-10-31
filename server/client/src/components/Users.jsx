@@ -12,7 +12,7 @@ class Users extends Component {
 
   componentWillMount() {
     const domain = 'http://localhost:3001'
-    const path = `${domain}/api/getusers`
+    const path = `/api/getusers`
     const headers = new Headers({
       "Authorization": `${localStorage.getItem('id_token')}`
     });
