@@ -36,10 +36,10 @@ class Users extends Component {
     return (
       <div>
         <h1>Users</h1>
-        {this.props.users[0] &&
+        {(this.props.users[0] &&
           this.props.users.map((user, index) => {
             return(<div key={index}>{user.username}</div>)
-          }) || <div>loading...</div>
+          })) || (<div>loading...</div>)
         }
       </div>
     );

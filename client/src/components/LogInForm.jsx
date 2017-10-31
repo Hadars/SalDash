@@ -64,7 +64,6 @@ class LogInForm extends Component {
   }
 
   redirectToDashboard() {
-    // return <Redirect to={{pathname: `/dashboard/${user.id}`}}/>
     return <Redirect to={{pathname: '/dashboard'}}/>
   }
 

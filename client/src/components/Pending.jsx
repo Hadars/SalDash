@@ -48,10 +48,10 @@ class Pending extends Component {
     return (
       <div>
         <h1>Pending Requests</h1>
-        {this.props.pendings &&
+        {(this.props.pendings &&
           this.props.pendings.map((pending, index) => {
             return(this.renderPending(pending))
-          }) || <div>loading...</div>
+          })) || (<div>loading...</div>)
         }
       </div>
     );
