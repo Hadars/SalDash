@@ -20,7 +20,8 @@
   height: 10%;
   width: 100%;
   display: flex;
-  min-width: 80px;
+  min-width: 550px;
+  min-height: 60px;
   justify-content: space-between;
 }
 
@@ -60,7 +61,7 @@
   /*border: 1px solid black;*/
   height: 100%;
   display: flex;
-  min-width: 220px;
+  min-width: 180px;
   justify-content: space-between;
   margin-right: 20px;
 }
@@ -80,25 +81,33 @@
 
 .sidebar-and-mainframe-container {
   /*border: 1px solid blue;*/
+  display: flex;
   height: 90%;
   width: 100%;
+  min-height: 560px;
+  min-width: 550px;
 }
 
 .dashboard-sidebar {
   /*border: 1px solid red;*/
   background-color: #191426;
   display: inline-block;
-  width: 6%;
+  width: 70px;
   height: 100%;
   vertical-align: top;
-  min-width: 80px;
+  /*min-width: 60px;*/
+  /*max-width: 70px;*/
+  flex: none;
 }
 
 .main-frame {
+  padding: 20px;
   background-color: #F1F6F9;
   display: inline-block;
   width: 94%;
   height: 100%;
+  flex: 1;
+  box-sizing: border-box;
 }
 
 

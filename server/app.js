@@ -40,7 +40,7 @@ app.use(passport.initialize());
 hookJWTStrategy(passport);
 
 // Set the static files location
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Add cookie parser middleware
@@ -60,25 +60,26 @@ app.set('view engine', 'jade');
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 
-  res.header("Access-Control-Allow-Origin", "http://35.202.110.181");
-  res.header("Access-Control-Allow-Origin", "https://35.202.110.181");
-  res.header("Access-Control-Allow-Origin", "35.202.110.181");
+  // res.header("Access-Control-Allow-Origin", "http://35.202.110.181");
+  // res.header("Access-Control-Allow-Origin", "https://35.202.110.181");
+  // res.header("Access-Control-Allow-Origin", "35.202.110.181");
 
-  res.header("Access-Control-Allow-Origin", "http://104.197.43.210");
-  res.header("Access-Control-Allow-Origin", "https://104.197.43.210");
-  res.header("Access-Control-Allow-Origin", "104.197.43.210");
+  // res.header("Access-Control-Allow-Origin", "http://104.197.43.210");
+  // res.header("Access-Control-Allow-Origin", "https://104.197.43.210");
+  // res.header("Access-Control-Allow-Origin", "104.197.43.210");
 
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 
 app.use('/api', require('./routes/api')(passport));
-
+app.use('/sandbox', require('./routes/sandbox'));
 //can replace with app.get('/', func..);
 // app.get('*', function(req, res) {
 //   res.sendFile(path.join(__dirname, '../client/build/', 'index.html'));
 // });
 
+// serve react app
 app.use(express.static("client/build"));
 
 // Or we can use routes

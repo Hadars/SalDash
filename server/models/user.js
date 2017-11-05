@@ -26,9 +26,21 @@ var modelDefinition = {
     allowNull: false
   },
 
- role: {
+  role: {
     type: Sequelize.INTEGER,
     defaultValue: config.userRoles.user
+  },
+
+  account_id: {
+    type: Sequelize.INTEGER,
+
+    references: {
+    // This is a reference to another model
+      model: Account,
+
+      // This is the column name of the referenced model
+      key: 'id'
+    }
   }
 };
 
