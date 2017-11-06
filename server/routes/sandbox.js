@@ -1,19 +1,20 @@
 var express = require('express');
 var router = express.Router();
-// var db = require('../database/mysqlDB')
-
-// function getUser(done){
-//   db.get().query('SELECT * FROM users', function(err, rows) {
-//       if (err) throw err;
-//       done(rows);
-//   });
-// }
-
+var models = require('../models')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // getUser(function(rows){console.log(rows);})
-  // res.render('index', { title: 'Express' });
-  res.send('Succesfuly loged in');
+  models.account.findAll({
+    include: [ models.user ]
+  }).then(function(accounts) {
+    // res.render('index', {
+    //   title: 'Sequelize: Express Example',
+    //   users: users
+    // });
+    console.log(accounts);
+    res.status(200).json(accounts);
+    // res.send(accounts.json();
+  });
+  // res.send('Succesfuly loged in');
 });
 
 module.exports = router;

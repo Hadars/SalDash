@@ -23,7 +23,6 @@ config.db = {
 
 config.db.details = {
   host: '35.194.3.231',
-  // port: 8889,
   dialect: 'mysql'
 };
 

@@ -1,5 +1,5 @@
 'use strict';
-var Demo = require('../models/demo');
+var models = require('../models');
 
 // The admin controller.
 var AdminController = {
@@ -7,7 +7,7 @@ var AdminController = {
     res.status(200).json({ message: 'Welcome to the admin area ' + req.user.username + '!' });
   },
   getPendings: function(req, res) {
-    Demo.all().then(AllDemos => {
+    models.demo.all().then(AllDemos => {
       res.status(200).json(AllDemos);
     })
   }

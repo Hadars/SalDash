@@ -4,8 +4,9 @@ var jwt = require('jsonwebtoken');
 
 var config = require('../config/config');
 var db = require('../services/database');
-var User = require('../models/user');
-var Demo = require('../models/demo');
+var models  = require('../models');
+// var User = require('../models/user');
+// var Demo = require('../models/demo');
 
 // The authentication controller.
 var AuthController = {};
@@ -45,7 +46,7 @@ AuthController.authenticateUser = function(req, res) {
       password = req.body.password,
       potentialUser = { where: { username: username } };
 
-    User.findOne(potentialUser).then(function(user) {
+    models.user.findOne(potentialUser).then(function(user) {
       if(!user) {
           res.status(404).json({ message: 'Authentication failed!' });
       } else {

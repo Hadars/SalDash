@@ -12,15 +12,6 @@ var cookieParser = require('cookie-parser');
 // App related modules
 var hookJWTStrategy = require('./services/passportStrategy');
 
-
-// session handler for passport local straegy
-// var session = require("express-session");
-
-// route config
-// var index = require('./routes/index');
-// var users = require('./routes/users');
-// var login = require('./routes/login');
-
 // Initializations
 var app = express();
 
@@ -33,15 +24,12 @@ app.use(morgan('dev'));
 
 // Hook up Passport.js
 app.use(passport.initialize());
-// app.use(session({ secret: "cats" }));
-// app.use(passport.session());
 
 // Hook the passport JWT strategy
 hookJWTStrategy(passport);
 
 // Set the static files location
 // app.use(express.static(path.join(__dirname, 'public')));
-
 
 // Add cookie parser middleware
 app.use(cookieParser());
@@ -50,24 +38,9 @@ app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
-// Home route.
-// app.get('/', function(req, res) {
-//   res.send('Nice meeting you wizard, I\'m Gandalf!');
-// });
-
 // enable CORS from any (*)
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-
-  // res.header("Access-Control-Allow-Origin", "http://35.202.110.181");
-  // res.header("Access-Control-Allow-Origin", "https://35.202.110.181");
-  // res.header("Access-Control-Allow-Origin", "35.202.110.181");
-
-  // res.header("Access-Control-Allow-Origin", "http://104.197.43.210");
-  // res.header("Access-Control-Allow-Origin", "https://104.197.43.210");
-  // res.header("Access-Control-Allow-Origin", "104.197.43.210");
-
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
@@ -81,11 +54,6 @@ app.use('/sandbox', require('./routes/sandbox'));
 
 // serve react app
 app.use(express.static("client/build"));
-
-// Or we can use routes
-// app.use('/', index);
-// app.use('/users', users);
-// app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

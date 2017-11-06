@@ -1,43 +1,43 @@
-// The User model.
-'use strict';
+"use strict";
 
-var Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
 
-var config = require('../config/config');
-var db = require('../services/database');
+  var modelDefinition = {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-// 1: The model schema.
-var modelDefinition = {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
 
-  type: {
-    type: Sequelize.STRING,
-    allowNull: true
-  },
+    settings: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-  settings: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+    level: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    }
 
-  level: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+  };
+
+  var modelOptions = {
+    instanceMethods: {
+    },
+    hooks: {
+    }
+  };
+
+  var Account = sequelize.define('account', modelDefinition, modelOptions);
+
+  Account.associate = function(models) {
+    Account.hasMany(models.user);
   }
 
+  return Account;
 };
-
-var modelOptions = {
-  instanceMethods: {
-  },
-  hooks: {
-  }
-};
-
-var AccountModel = db.define('account', modelDefinition, modelOptions);
-
-module.exports = AccountModel;
