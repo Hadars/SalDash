@@ -18,6 +18,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://salaryo-stage.appspot.com"
-
+  "proxy": "http://localhost:3001"
 }

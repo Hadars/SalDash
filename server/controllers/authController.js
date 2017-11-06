@@ -44,7 +44,7 @@ AuthController.authenticateUser = function(req, res) {
   } else {
     var username = req.body.username,
       password = req.body.password,
-      potentialUser = { where: { username: username } };
+      potentialUser = { include: [models.account], where: { username: username } };
 
     models.user.findOne(potentialUser).then(function(user) {
       if(!user) {
@@ -57,8 +57,7 @@ AuthController.authenticateUser = function(req, res) {
               config.keys.secret,
               { expiresIn: config.jwt.expiresIn }
             );
-
-            res.json({ success: true, token: 'JWT ' + token, role: user.role });
+            res.json({ success: true, token: 'JWT ' + token, role: user.role, username: user.username, account: user.account.name });
           } else {
             res.status(404).json({ message: 'Login failed!' });
           }

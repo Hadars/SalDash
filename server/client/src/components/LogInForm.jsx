@@ -26,7 +26,9 @@ class LogInForm extends Component {
         email,
         success: result.success,
         token: result.token,
-        role: result.role
+        role: result.role,
+        account: result.account,
+        username: result.username
       }
       return this.props.logUser(user)
     })

@@ -9,6 +9,8 @@ export function setLocalStorage(response) {
   // Saves user token to localStorage
   localStorage.setItem('id_token', response.token)
   localStorage.setItem('role', response.role)
+  localStorage.setItem('username', response.username)
+  localStorage.setItem('account_name', response.account)
 }
 
 export function logout() {

@@ -21,7 +21,7 @@ class DashboardHeader extends Component {
       <div className="upper-toolbar-container">
         {this.tuneIcon()}
         <div className="account-name-container">
-          <div className="account-name-text">AccountName</div>
+          <div className="account-name-text">{this.props.account}</div>
         </div>
       </div>
     )

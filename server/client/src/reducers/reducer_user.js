@@ -4,7 +4,9 @@ import { SIGNED_IN } from '../constants';
     email: null,
     success: null,
     token: null,
-    role: null
+    role: null,
+    username: null,
+    account: null
   }
 
 

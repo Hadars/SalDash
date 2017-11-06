@@ -10,10 +10,9 @@ var UserController = {
     res.status(200).json({ message: 'Welcome to the users area ' + req.user.username + '!' });
   },
   getUsers: function(req, res) {
-    models.user.all().then(allUsers => {
+    models.user.all({where: {accountId: req.user.accountId}}).then(allUsers => {
       res.status(200).json(allUsers);
     })
-
   }
 };
 
