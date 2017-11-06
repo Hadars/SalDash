@@ -38,6 +38,6 @@ var modelOptions = {
   }
 };
 
-var DemoModel = db.define('account', modelDefinition, modelOptions);
+var AccountModel = db.define('account', modelDefinition, modelOptions);
 
 module.exports = AccountModel;

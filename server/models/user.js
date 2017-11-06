@@ -6,6 +6,7 @@ var bcrypt = require('bcrypt');
 
 var config = require('../config/config');
 var db = require('../services/database');
+var Account = require('./account');
 
 // 1: The model schema.
 var modelDefinition = {

@@ -3,17 +3,17 @@
 
 var config = module.exports;
 
-// config.db = {
-//   user: 'root',
-//   password: '1234',
-//   name: 'salaryo_test'
-// };
+config.localDb = {
+  user: 'root',
+  password: '1234',
+  name: 'salaryo_test'
+};
 
-// config.db.details = {
-//   host: '127.0.0.1',
-//   // port: 8889,
-//   dialect: 'mysql'
-// };
+config.localDb.details = {
+  host: '127.0.0.1',
+  // port: 8889,
+  dialect: 'mysql'
+};
 
 config.db = {
   user: 'root',
