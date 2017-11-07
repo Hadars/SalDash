@@ -4,14 +4,16 @@ import DashboardSidebar from './DashboardSidebar';
 import { Route }    from 'react-router-dom';
 import Users                    from './Users';
 import Pending                    from './Pending';
+import Logout                    from './Logout';
 import { connect }                  from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 class Dashboard extends Component {
-  //constructor(props){
-  //  super(props);
-  //}
 
   render() {
+    if (!this.props.user.token) {
+      this.props.history.replace('/')
+    }
     return (
       <div className="dashboard fullscreen">
         <DashboardHeader account={this.props.user.account}/>
@@ -20,7 +22,7 @@ class Dashboard extends Component {
           <div className="main-frame">
             <Route path={`${this.props.match.url}/pending`} component={Pending}/>
             <Route path={`${this.props.match.url}/users`} component={Users}/>
-            <Route path={`${this.props.match.url}/logout`} component={Users}/>
+            <Route path={`${this.props.match.url}/logout`} component={Logout}/>
           </div>
         </div>
       </div>
@@ -39,4 +41,4 @@ function mapStateToProps(state) {
   return { user }
 };
 
-export default connect(mapStateToProps,null)(Dashboard);
+export default withRouter(connect(mapStateToProps,null)(Dashboard))

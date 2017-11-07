@@ -71,8 +71,8 @@ class LogInForm extends Component {
   }
 
   render() {
-    console.log("%crender! LoginForm.jsx", 'color: blue; font-size: medium')
-    console.log("this.props: ", this.props);
+    // console.log("%crender! LoginForm.jsx", 'color: blue; font-size: medium')
+    // console.log("this.props: ", this.props);
     if (!this.props.user.loggedIn) {
       return this.renderLogin()
     }

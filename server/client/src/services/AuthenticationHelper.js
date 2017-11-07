@@ -16,6 +16,9 @@ export function setLocalStorage(response) {
 export function logout() {
   // Clear user token and profile data from localStorage
   localStorage.removeItem('id_token');
+  localStorage.removeItem('role');
+  localStorage.removeItem('username');
+  localStorage.removeItem('account_name');
 }
 
 export function signIn(username, password) {
