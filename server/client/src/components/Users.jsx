@@ -6,7 +6,30 @@ class Users extends Component {
   constructor(props){
    super(props);
    this.state = {
-    key: 'value'
+    userStatus: null,
+    name: null,
+    surname: null,
+    gender: null,
+    middleName: null,
+    natureOfBusiness: null,
+    companyName: null,
+    jobTitle: null,
+    email: null,
+    phoneNumber: null,
+    zipCode: null,
+    idType: null,
+    idImage: null,
+    validDate: null,
+    nationality: null,
+    dateOfBirth: null,
+    residence: null,
+    address: null,
+    faceImage: null,
+    password: null,
+    aut10x: null,
+    pos: null,
+    acquire: null,
+    fields: ['userStatus', 'name', 'surname', 'gender', 'middleName', 'natureOfBusiness', 'companyName', 'jobTitle', 'email', 'phoneNumber', 'zipCode', 'idType', 'idImage', 'validDate', 'nationality', 'dateOfBirth', 'residence', 'address', 'faceImage', 'password', 'aut10x', 'pos', 'acquire']
    }
   }
 
@@ -29,10 +52,32 @@ class Users extends Component {
       .catch((err)=> console.log("errorrrrr: ", err))
   }
 
+  renderNewUserForm() {
+    return (
+      <ul>
+        {this.state.fields.map((field, index) =>{
+          return (
+            <li>
+              <div className="email-container">
+                <label className="email-label">{field}</label>
+                <input className="email-input" type="text" name="email" onChange={event => this.setState({[field]: event.target.value})}/>
+              </div>
+            </li>
+          )
+        })}
+        <li>
+          <div className="button-container" onClick={() => this.handleSubmit()}>Create User</div>
+        </li>
+      </ul>
+    )
+  }
+
+  handleSubmit() {
+
+  }
 
 
   render() {
-    console.log("this.props from render: ", this.props);
     return (
       <div>
         <h1>Users</h1>
@@ -41,6 +86,10 @@ class Users extends Component {
             return(<div key={index}>{user.username}</div>)
           }) || <div>loading...</div>
         }
+        <h1>Add User</h1>
+        <div className="add-user-container">
+          {this.renderNewUserForm()}
+        </div>
       </div>
     );
   }
