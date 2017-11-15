@@ -1,6 +1,7 @@
 import { SIGNED_IN } from '../constants'
 import { GET_USERS } from '../constants'
 import { GET_PENDINGS } from '../constants'
+import { LOG_OUT } from '../constants'
 
 
 export function logUser(user)  {
@@ -11,6 +12,17 @@ export function logUser(user)  {
     }
   }
   console.log("(actions/index.js): action in logUser", action);
+  return action;
+}
+
+export function logOutUser(user)  {
+  const action = {
+    type: LOG_OUT,
+    payload: {
+      user
+    }
+  }
+  console.log("(actions/index.js): action in logOutUser", action);
   return action;
 }
 

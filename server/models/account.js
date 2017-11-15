@@ -1,26 +1,29 @@
+"use strict";
+
 module.exports = function(sequelize, DataTypes) {
 
   var modelDefinition = {
-    fullname: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
 
-    company: {
+    type: {
       type: DataTypes.STRING,
       allowNull: true
     },
 
-    phone: {
+    settings: {
       type: DataTypes.STRING,
       allowNull: false
     },
 
-   email: {
+    level: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false
     }
+
   };
 
   var modelOptions = {
@@ -30,7 +33,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   };
 
-  var Demo = sequelize.define("demo", modelDefinition, modelOptions);
+  var Account = sequelize.define('account', modelDefinition, modelOptions);
 
-  return Demo;
+  Account.associate = function(models) {
+    Account.hasMany(models.user);
+  }
+
+  return Account;
 };

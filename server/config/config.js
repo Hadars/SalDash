@@ -3,15 +3,26 @@
 
 var config = module.exports;
 
-config.db = {
+config.localDb = {
   user: 'root',
   password: '1234',
   name: 'salaryo_test'
 };
 
-config.db.details = {
+config.localDb.details = {
   host: '127.0.0.1',
   // port: 8889,
+  dialect: 'mysql'
+};
+
+config.db = {
+  user: 'root',
+  password: 'n3v3rbr3ak',
+  name: 'salaryo_prod'
+};
+
+config.db.details = {
+  host: '35.194.3.231',
   dialect: 'mysql'
 };
 

@@ -9,16 +9,20 @@ export function setLocalStorage(response) {
   // Saves user token to localStorage
   localStorage.setItem('id_token', response.token)
   localStorage.setItem('role', response.role)
+  localStorage.setItem('username', response.username)
+  localStorage.setItem('account_name', response.account)
 }
 
 export function logout() {
   // Clear user token and profile data from localStorage
   localStorage.removeItem('id_token');
+  localStorage.removeItem('role');
+  localStorage.removeItem('username');
+  localStorage.removeItem('account_name');
 }
 
 export function signIn(username, password) {
-  const domain = 'http://localhost:3001'
-  const path = `${domain}/api/authenticate`
+  const path = `/api/authenticate`
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
@@ -69,7 +73,7 @@ export function isTokenExpired(token) {
 
 export function requestDemo(params) {
   const domain = 'http://localhost:3001'
-  const path = `${domain}/api/signup`
+  const path = `/api/signup`
   const headers = new Headers({
     'Content-Type': 'application/json'
   });

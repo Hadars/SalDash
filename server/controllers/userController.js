@@ -1,6 +1,7 @@
 'use strict';
 // var db = require('../config/mysqlDB')
-var User = require('../models/user');
+// var User = require('../models/user');
+var models  = require('../models');
 
 // The user controller.
 var UserController = {
@@ -9,10 +10,9 @@ var UserController = {
     res.status(200).json({ message: 'Welcome to the users area ' + req.user.username + '!' });
   },
   getUsers: function(req, res) {
-    User.all().then(allUsers => {
+    models.user.all({where: {accountId: req.user.accountId}}).then(allUsers => {
       res.status(200).json(allUsers);
     })
-
   }
 };
 
