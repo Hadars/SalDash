@@ -12,7 +12,7 @@ var cookieParser = require('cookie-parser');
 // App related modules
 var hookJWTStrategy = require('./services/passportStrategy');
 
-// Initializations
+// Initializations .
 var app = express();
 
 // Parse as urlencoded and json.
